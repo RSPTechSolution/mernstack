@@ -20,30 +20,24 @@ const Home = () => {
                 </div>
             </div>
             <div className="filter_div mt-5 d-flex justify-content-between flex-wrap">
-            <div className="export_csv">
-              <Button className='export_btn' onClick={exportuser}>Export To Csv</Button>
-            </div>
-            <div className="filter_gender">
-              <div className="filter">
-                <h3>Filter By Gender</h3>
-                <div className="gender d-flex justify-content-between">
-                  <Form.Check
-                    type={"radio"} label={`All`} name="gender"value={"All"} defaultChecked/>
-                  <Form.Check
-                    type={"radio"}
-                    label={`Male`} name="gender" value={"Male"}/>
-                  <Form.Check
-                    type={"radio"}
-                    label={`Female`}
-                    name="gender"
-                    value={"Female"}
-                    onChange={(e)=>setGender(e.target.value)}
-                  />
+              <div className="export_csv">
+                <Button className='export_btn'>Export To Csv</Button>
+              </div>
+              <div className="filter_gender">
+                <div className="filter">
+                  <h3>Filter By Gender</h3>
+                  <div className="gender d-flex justify-content-between">
+                    <Form.Check
+                      type={"radio"} label={`All`} name="gender"value={"All"} defaultChecked/>
+                    <Form.Check
+                      type={"radio"} label={`Male`} name="gender" value={"Male"}/>
+                    <Form.Check type={"radio"} label={`Female`} name="gender" value={"Female"}/>
+                  </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   )
