@@ -5,7 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 const Headers = () => {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+    <div className='header-navbar'>
+    <Navbar>
         <Container>
           <Navbar.Brand href="/">MernStack</Navbar.Brand>
           <Nav className="me-auto">
@@ -15,6 +16,8 @@ const Headers = () => {
           </Nav>
         </Container>
       </Navbar>
+    </div>
+     
     </>
   
   )

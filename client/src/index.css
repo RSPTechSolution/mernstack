@@ -1,13 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Style+Script&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #B99095 !important; */
+  background-color: #FCB5AC !important;
+  /* color: #3D5B59 !important; */
+  color: #B5E5CF !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.mb-3.button button {
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #FCB5AC !important;
+  color: #3D5B59;
+  border: #3D5B59;
+}
+.shadow-card {
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px !important;
+  /* background-color: #FCB5AC !important; */
+  background-color: #3D5B59 !important;
+}
+
+.header-navbar{
+  background-color: #3D5B59;
+}
+
+.header-navbar a{
+  color: #B5E5CF;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+input, .css-13cymwt-control{
+  background-color: #FCB5AC !important;
 }

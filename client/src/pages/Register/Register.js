@@ -13,8 +13,8 @@ const Register = () => {
   return (
     <>
       <div className="container">
+        <Card className='shadow-card mt-3 p-3'>
         <h2 className='text-center mt-1'>Register Your Details</h2>
-        <Card className='shadow mt-3 p-3'>
           <div className='profile_div text-center'>
             <img src="./male.jpg" alt="" />
           </div>
@@ -54,9 +54,7 @@ const Register = () => {
                   <Form.Control type="text" name='location' placeholder='Enter Your Location' />
                 </Form.Group>
                 <Form.Group className="mb-3 button" controlId="formBasicEmail">
-                  <Button variant="primary" type="submit" >
-                    Submit
-                  </Button>
+                  <Button  type="submit" > Submit </Button>
                 </Form.Group>
               </Row>
           </Form>
