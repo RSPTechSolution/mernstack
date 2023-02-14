@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './register.css';
-// import Card from 'react-bootstrap/Card';
 import {Form, Card, Row, Button} from 'react-bootstrap';
 import Select from 'react-select';
 
@@ -9,7 +8,10 @@ const options = [
   { value: 'Inactive', label: 'Inactive' },
 ];
 
+
 const Register = () => {
+
+
   return (
     <>
       <div className="container">
