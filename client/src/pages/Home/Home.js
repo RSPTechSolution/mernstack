@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './home.css';
-import {Form, Button} from 'react-bootstrap';
+import {Form, Button, Dropdown} from 'react-bootstrap';
+import Loading from "../../components/Loading/Loading";
+import Tables from '../../components/Tables/Tables';
+import { getUsers } from '../../services/Apis';
 
 const Home = () => {
+  const [users, setUsers] = useState([]);
+  const [showspin, setShowSpin] = useState(true);
+
+  const usersGet = async () => {
+    const response = await getUsers();
+    if(response.status === 200){
+      setUsers(response.data);
+    }
+  }
+  // console.log(users);
+
+  useEffect(() => {
+    usersGet();
+    setTimeout(() => {
+      setShowSpin(false)
+    }, 1200);
+  },[])
   return (
     <>
       <div className="container--fluid filters">
@@ -16,7 +36,7 @@ const Home = () => {
                   </Form>
                 </div>
                 <div className="add_btn">
-                  <Button> <i class="fa-solid fa-plus"></i>&nbsp; Add User</Button>
+                  <Button> <i className="fa-solid fa-plus"></i>&nbsp; Add User</Button>
                 </div>
             </div>
             <div className="filter_div mt-5 d-flex justify-content-between flex-wrap">
@@ -35,8 +55,53 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+
+              {/* short by value */}
+              <div className="filter_newold">
+                <h3>Short By Value</h3>
+                <Dropdown className='text-center'>
+                  <Dropdown.Toggle className='dropdown_btn' id='dropdown-basic'>
+                    <i className="fa-solid fa-sort"></i>
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu> 
+                    <Dropdown.Item>New</Dropdown.Item>
+                    <Dropdown.Item>Old</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+
+              {/* filter by status */}
+              <div className="filter_status">
+              <div className="status">
+                <h3>Filter By Status</h3>
+                <div className="status_radio d-flex justify-content-between flex-wrap">
+                  <Form.Check
+                    type={"radio"}
+                    label={`All`}
+                    name="status"
+                    value={"All"}
+                    defaultChecked
+                  />
+                  <Form.Check
+                    type={"radio"}
+                    label={`Active`}
+                    name="status"
+                    value={"Active"}
+                  />
+                  <Form.Check
+                    type={"radio"}
+                    label={`InActive`}
+                    name="status"
+                    value={"InActive"}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        {
+          showspin ? <Loading/> : <Tables usersData={users}/>
+        }
       </div>
       </div>
     </>
