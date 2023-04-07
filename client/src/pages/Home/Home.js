@@ -4,6 +4,8 @@ import {Form, Button, Dropdown} from 'react-bootstrap';
 import Loading from "../../components/Loading/Loading";
 import Tables from '../../components/Tables/Tables';
 import { getUsers } from '../../services/Apis';
+import {Link} from 'react-router-dom';
+import {AiOutlinePlus, AiOutlineSortDescending } from 'react-icons/ai';
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -36,7 +38,8 @@ const Home = () => {
                   </Form>
                 </div>
                 <div className="add_btn">
-                  <Button> <i className="fa-solid fa-plus"></i>&nbsp; Add User</Button>
+                  <Link to='/register'><Button> <AiOutlinePlus/>&nbsp; Add User</Button></Link>
+                  
                 </div>
             </div>
             <div className="filter_div mt-5 d-flex justify-content-between flex-wrap">
@@ -61,7 +64,7 @@ const Home = () => {
                 <h3>Short By Value</h3>
                 <Dropdown className='text-center'>
                   <Dropdown.Toggle className='dropdown_btn' id='dropdown-basic'>
-                    <i className="fa-solid fa-sort"></i>
+                    <AiOutlineSortDescending />
                   </Dropdown.Toggle>
                   <Dropdown.Menu> 
                     <Dropdown.Item>New</Dropdown.Item>

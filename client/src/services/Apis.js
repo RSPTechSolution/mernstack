@@ -8,3 +8,7 @@ export const registerfunc = async(data,header) => {
 export const getUsers = async() => {
     return await apiRequest("GET", `${BASE_URL}/user/details`);
 }
+
+export const getSingleUser = async (id) => {
+    return await apiRequest("GET", `${BASE_URL}/user/${id}`);
+}

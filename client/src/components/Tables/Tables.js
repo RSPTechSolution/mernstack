@@ -1,7 +1,12 @@
 import React from 'react';
 import { Row, Card, Table, Dropdown, Badge } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../services/helper';
-import {NavLink} from 'react-bootstrap';
+import './Table.css';
+import { AiFillEye } from 'react-icons/ai';
+import { FaEllipsisV } from 'react-icons/fa';
+import { BsPencilSquare, BsTrash3 } from 'react-icons/bs';
+import { TfiAngleDown } from 'react-icons/tfi';
 
 const Tables = (usersData) => {
     // const [userData] = usersData.usersData;
@@ -38,7 +43,7 @@ const Tables = (usersData) => {
                                                 <Dropdown className='text-center'>
                                                     <Dropdown.Toggle className='dropdown_btn' id="dropdown-basic">
                                                     <Badge bg={element.status === "Active" ? "primary" : "danger"}>
-                                                        {element.status} <i className="fa-solid fa-angle-down"></i>
+                                                        {element.status} <TfiAngleDown/>
                                                     </Badge>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu>
@@ -53,22 +58,22 @@ const Tables = (usersData) => {
                                                 <td>
                                                 <Dropdown>
                                                     <Dropdown.Toggle variant='light' className='action' id="dropdown-basic">
-                                                    <i className="fa-solid fa-ellipsis-vertical"></i>
+                                                    <FaEllipsisV/>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu>
                                                     <Dropdown.Item >
-                                                        <NavLink to={`/userprofile/${element._id}`} className="text-decoration-none">
-                                                        <i className="fa-solid fa-eye" style={{ color: "green" }}></i> <span>View</span>
-                                                        </NavLink>
+                                                        <Link to={`/userprofile/${element._id}`} className="text-decoration-none">
+                                                        <AiFillEye style={{ color: "green" }} /> <span>View</span>
+                                                        </Link>
                                                     </Dropdown.Item>
                                                     <Dropdown.Item >
-                                                        <NavLink to={`/edit/${element._id}`} className="text-decoration-none">
-                                                        <i className="fa-solid fa-pen-to-square" style={{ color: "blue" }}></i> <span>Edit</span>
-                                                        </NavLink>
+                                                        <Link to={`/edit/${element._id}`} className="text-decoration-none">
+                                                       <BsPencilSquare style={{ color: "blue" }}/> <span>Edit</span>
+                                                        </Link>
                                                     </Dropdown.Item>
                                                     <Dropdown.Item >
                                                         <div>
-                                                        <i className="fa-solid fa-trash" style={{ color: "red" }}></i> <span>Delete</span>
+                                                        <BsTrash3 style={{ color: "red" }}/> <span>Delete</span>
                                                         </div>
                                                     </Dropdown.Item>
                                                     </Dropdown.Menu>

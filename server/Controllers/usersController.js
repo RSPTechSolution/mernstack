@@ -40,4 +40,34 @@ exports.userGet = async (req, res) => {
         console.log(error);
         console.log("getuser error");
     }
+};
+
+exports.getSingleUser = async (req, res) => {
+    const {id: userId} = req.params;
+    try {
+        const userData = await users.findOne({_id:userId});
+        res.status(200).json(userData);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
+
+exports.updateUser = async (req, res) => {
+    const {id: userId} = req.params;
+    const {fname, lname, email, mobile, gender, location, status, user_profile} = req.body;
+        const file = req.file ? req.file.filename : user_profile;
+        const dateUpdate = moment(new Date()).format("YYY-MM-DD hh:mm:ss");
+    try {
+        const updatedUser = await users.findByIdAndUpdate({
+            fname, lname, email, mobile, gender, location, status, profile: file, dateUpdate
+        },{
+            new:true
+        });
+
+        await updatedUser.save();
+        res.status(200).json(updatedUser);
+
+    } catch (error) {
+        res.status(500).json(error);
+    }
 }

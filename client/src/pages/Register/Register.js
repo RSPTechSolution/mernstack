@@ -87,7 +87,7 @@ const Register = () => {
       data.append("user_profile",image)
       data.append("location",location)
 
-      console.log(data.get("user_profile"));
+      // console.log(data.get("user_profile"));
 
       const config = {
         "Content-Type":"multipart/form-data"
@@ -109,7 +109,8 @@ const Register = () => {
         // setUseradd(response.data)
         navigate("/");
       }else{
-        toast.error("Error!")
+        console.log(response);
+        toast.error(`Error!: ${response.response.data}`)
       }
     }
 
